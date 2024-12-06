@@ -8,9 +8,10 @@ include <stdio.h>
 //Might have to define madlib2.txt
 
 //Prototypes
+void fileIO(FILE *flptr, char arr[][]);
+void readLine(FILE *flptr, char arr[][]); //reads file up to a user input and saves to array based on the lecture, i’m thinking we’ll have to adjust these and only connect with the file once like she advised
 void userInput (char fig, char word[][cols]); //think we just need one char, may not even need it– will see
-Void readLine(FILE *flptr, char arr[]); //reads file up to a user input and saves to array based on the lecture, i’m thinking we’ll have to adjust these and only connect with the file once like she advised
-Char printString(char printingArray[]); //can call on readLine and then printf accordingly? – i was more thinking this would just be a general function to print a string to the terminal
+void printString(char printingArray[]); //can call on readLine and then printf accordingly? – i was more thinking this would just be a general function to print a string to the terminal
 //with these three we could get our five functions by making userInput into three separate if we can’t find anything else.
 //i feel like we might need a function that will help us swap with the placeholders there
 
