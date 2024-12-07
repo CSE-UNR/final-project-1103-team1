@@ -5,7 +5,7 @@
 
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
-
+void printArray(char word[][CAP], int row);
 
 int main() {
     	FILE *flptr;
@@ -41,3 +41,8 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows) {
 	}
 }
 
+void printArray(char word[][CAP], int row){
+	for (int i = 0; i < row; i++){
+		printf("%s\n", word[i]);
+	}
+}

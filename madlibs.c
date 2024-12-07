@@ -1,6 +1,6 @@
 // Skylar Goyer, Alina Walwyn, and Max Haubrich
 
-include <stdio.h>
+#include <stdio.h>
 
 #define FILENAME "madlib1.txt"
 #define CAP 100
