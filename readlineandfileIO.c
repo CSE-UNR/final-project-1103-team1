@@ -5,7 +5,7 @@
 
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
-void printArray(char arr[][CAP], int rows);
+
 
 int main() {
     	FILE *flptr;
@@ -40,8 +40,4 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows) {
 		(*rows)++;
 	}
 }
-void printArray(char arr[][CAP], int rows) {
-    	for (int i = 0; i < rows; i++) {
-        	printf("%s\n", arr[i]);
-    	}
-}
+
