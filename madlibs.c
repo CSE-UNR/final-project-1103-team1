@@ -45,7 +45,7 @@ void userInput(char word[][CAP], int row){
 			break;
 		default: 
 			for(int jdex = 0; jdex < numColumns; jdex++){
-			arr[index][jdex] = word[index][jdex];
+			arr[row][jdex] = word[row][jdex];
 		}
 	}
 }
