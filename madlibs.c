@@ -6,25 +6,23 @@
 #define CAP 100
 
 //prototypes
-void userInput(char word[][CAP], int row);
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
+void userInput(char word[][CAP], int row);
 void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]);
 void printArray(char word[][CAP], int row);
 
 int main (){
-FILE *flptr;
-	// Char (enter arguments for function calls); //should have a 2d array to store the whole paragraph 
-// it might be helpful to have a counter that keeps track of what row the array is on– starts at zero and implements every time the program either reads from the file or gets input from the user //this could be included in the function with the switch cases?
+	FILE *flptr;
+	char arr[CAP][CAP];
+	int *rows=0;
 	int counter = 0;
-//To open files // (We’ll likely need to open files multiple times or in the function itself
-//Reminder to self: while(fscanf()==1){ could be used later
-	flptr=fopen(FILENAME, "r");
-	If(flptr==NULL){
-		printf("Can’t open file.\n");
-		return 0;
-	}
-//Function calls
+//In the function void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]){
+	//Call: fileIO(flptr, arr, numRows);
+	
+	//Then Call: userInput(word, numRows);
+//Call switchArrays
+//Finally, call printArray(arr, row);
 	fclose(flptr);
 
 	Return 0;
@@ -45,6 +43,10 @@ void userInput(char word[][CAP], int row){
 			printf("Enter a verb:\n");
 			scanf("%s", word[row]);
 			break;
+		default: 
+			for(int jdex = 0; jdex < numColumns; jdex++){
+			arr[index][jdex] = word[index][jdex];
+		}
 	}
 }
 
@@ -74,16 +76,9 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows) {
 }
 
 void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]){
-
-	readLine(FILE *flptr, char arr[][CAP], int *rows);
-	
-	userInput(char word[][CAP], int row);
-	
 	for(int index = 0; index < numRows; index++){
-		for(int jdex = 0; jdex < numColumns; jdex++){
-			arr[index][jdex] = word[index][jdex];
+		userInput(word[][CAP], index);
 	}
-		}
 }
 
 void printArray(char word[][CAP], int row){
