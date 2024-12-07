@@ -4,16 +4,13 @@ include <stdio.h>
 
 #define FILENAME "madlib1.txt"
 #define CAP 100
-//Should we have a define for columns? i was thinking that would be the “CAP” macro
-//Might have to define madlib2.txt
 
-//Prototypes
-void fileIO(FILE *flptr, char arr[][]);
-void readLine(FILE *flptr, char arr[][]); //reads file up to a user input and saves to array based on the lecture, i’m thinking we’ll have to adjust these and only connect with the file once like she advised
-void userInput (char fig, char word[][cols]); //think we just need one char, may not even need it– will see
-void printString(char printingArray[]); //can call on readLine and then printf accordingly? – i was more thinking this would just be a general function to print a string to the terminal
-//with these three we could get our five functions by making userInput into three separate if we can’t find anything else.
-//i feel like we might need a function that will help us swap with the placeholders there
+//prototypes
+void userInput(char word[][CAP], int row);
+void fileIO(FILE *flptr, char arr[][CAP], int *rows);
+void readLine(FILE *flptr, char arr[][CAP], int *rows);
+void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]);
+void printArray(char word[][CAP], int row);
 
 int main (){
 FILE *flptr;
@@ -34,30 +31,63 @@ FILE *flptr;
 }
 
 //Functions 
-void userInput (char word[][cols]){
-	char fig;
-	fscanf("%c", &fig);
-	switch(fig){
-		case 'A’: 
+void userInput(char word[][CAP], int row){
+	switch(word[row][0]){
+		case 'A':
 			printf("Enter an adjective:\n");
+			scanf("%s", word[row]);
 			break;
-		case ‘N’:
+		case 'N':
 			printf("Enter a noun:\n");
+			scanf("%s", word[row]);
 			break;
-		case ‘V’:
+		case 'V':
 			printf("Enter a verb:\n");
+			scanf("%s", word[row]);
 			break;
 	}
-	scanf("%s", word[counter]); 
-	//check syntax for this one – pointers to 2d arrays //like right here we could do a counter ++; and also add it to the function parameters
 }
 
-Void readLine(FILE *flptr, char *arr[][]){
-
+void fileIO(FILE *flptr, char arr[][CAP], int *rows) {
+    	flptr = fopen(FILENAME, "r");
+    	if (flptr == NULL) {
+        	printf("Can't open file.\n");
+        	return;
+    	}
+    	readLine(flptr, arr, rows);
+    	fclose(flptr);
 }
 
-Char printString(char printingArray[]){
-
-	return (input return here);
+void readLine(FILE *flptr, char arr[][CAP], int *rows) {
+//Collecting the strings and saving into array.
+    	while (*rows < CAP && fgets(arr[*rows], CAP, flptr) != NULL) {
+//Get rid of gross spacing by finding endline and terminating it.
+    		int i = 0;
+		while (arr[*rows][i] != '\0') {
+    			i++;
+		}
+		if (i > 0 && arr[*rows][i - 1] == '\n') {
+    			arr[*rows][i - 1] = '\0';  
+		}
+		(*rows)++;
+	}
 }
 
+void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]){
+
+	readLine(FILE *flptr, char arr[][CAP], int *rows);
+	
+	userInput(char word[][CAP], int row);
+	
+	for(int index = 0; index < numRows; index++){
+		for(int jdex = 0; jdex < numColumns; jdex++){
+			arr[index][jdex] = word[index][jdex];
+	}
+		}
+}
+
+void printArray(char word[][CAP], int row){
+	for (int i = 0; i < rows; i++){
+		printf("%s\n", word[i]);
+	}
+}

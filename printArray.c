@@ -6,6 +6,7 @@
 #define CAP 100
 						       /*readline array*/         /*switch array*/
 void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]);
+void printArray(char word[][CAP], int row);
 
 //main function and whatver is inbetween
 
@@ -20,4 +21,10 @@ void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char w
 			arr[index][jdex] = word[index][jdex];
 	}
 		}
+}
+
+void printArray(char word[][CAP], int row){
+	for (int i = 0; i < rows; i++){
+		printf("%s\n", word[i]);
+	}
 }
