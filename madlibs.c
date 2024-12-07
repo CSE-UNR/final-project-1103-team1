@@ -8,28 +8,25 @@
 //prototypes
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
-void userInput(char word[][CAP], int row);
+void userInput(char word[][CAP],char arr[][CAP], int row, int numCol);
 void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]);
 void printArray(char word[][CAP], int row);
 
 int main (){
-	FILE *flptr;
+	FILE *flptr = NULL;
 	char arr[CAP][CAP];
-	int *rows=0;
-	int counter = 0;
-//In the function void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]){
-	//Call: fileIO(flptr, arr, numRows);
-	
-	//Then Call: userInput(word, numRows);
-//Call switchArrays
-//Finally, call printArray(arr, row);
+	char word[CAP][CAP];
+	int rows=0, columns=CAP;
+	fileIO(flptr, arr, &rows);
+	switchingArrays(rows, columns, arr, word);
+	printArray(word, rows);
 	fclose(flptr);
 
-	Return 0;
+	return 0;
 }
 
 //Functions 
-void userInput(char word[][CAP], int row){
+void userInput(char word[][CAP],char arr[][CAP], int row, int numCol){
 	switch(word[row][0]){
 		case 'A':
 			printf("Enter an adjective:\n");
@@ -44,7 +41,7 @@ void userInput(char word[][CAP], int row){
 			scanf("%s", word[row]);
 			break;
 		default: 
-			for(int jdex = 0; jdex < numColumns; jdex++){
+			for(int jdex = 0; jdex < numCol; jdex++){
 			arr[row][jdex] = word[row][jdex];
 		}
 	}
@@ -75,14 +72,14 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows) {
 	}
 }
 
-void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]){
+void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][CAP]){
 	for(int index = 0; index < numRows; index++){
-		userInput(word[][CAP], index);
+		userInput(word, arr, index, numColumns);
 	}
 }
 
 void printArray(char word[][CAP], int row){
-	for (int i = 0; i < rows; i++){
+	for (int i = 0; i < row; i++){
 		printf("%s\n", word[i]);
 	}
 }
