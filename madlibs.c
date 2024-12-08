@@ -27,6 +27,7 @@ int main (){
 void userInput(char arr[][CAP],char word[][CAP], int row, int numCol){
 	switch(arr[row][0]){
 		case 'A':
+<<<<<<< HEAD
 			printf("Enter an adjective:\n");
 			scanf(" %s", word[row]);
 			break;
@@ -37,6 +38,18 @@ void userInput(char arr[][CAP],char word[][CAP], int row, int numCol){
 		case 'V':
 			printf("Enter a verb:\n");
 			scanf(" %s", word[row]);
+=======
+			printf("Please enter an adjective: ");
+			scanf("%s", word[row]);
+			break;
+		case 'N':
+			printf("Please enter a noun: ");
+			scanf("%s", word[row]);
+			break;
+		case 'V':
+			printf("Please enter a verb: ");
+			scanf("%s", word[row]);
+>>>>>>> 927589cf0b937a4700f450bf4442d2d82da4318a
 			break;
 		default: 
 			for(int jdex = 0; jdex < numCol; jdex++){
@@ -78,7 +91,15 @@ void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][C
 }
 
 void printArray(char word[][CAP], int row){
-	for (int i = 0; i < row; i++){
-		printf("%s", word[i]);
+	printf("%s", word[0]);
+	for (int i = 1; i < row; i++){
+		switch(word[i][0]){
+			case '.':
+				printf("%s", word[i]);
+				break;
+			default:
+				printf(" %s", word[i]);
+		}
 	}
+	printf("\n");
 }
