@@ -2,13 +2,13 @@
 
 #include <stdio.h>
 
-#define FILENAME "madlib1.txt"
+#define FILENAME "madlib2.txt"
 #define CAP 100
 
 //prototypes
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
-void userInput(char word[][CAP],char arr[][CAP], int row, int numCol);
+void userInput(char arr[][CAP],char word[][CAP], int row, int numCol);
 void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][CAP]);
 void printArray(char word[][CAP], int row);
 
@@ -24,7 +24,7 @@ int main (){
 }
 
 //Functions 
-void userInput(char word[][CAP],char arr[][CAP], int row, int numCol){
+void userInput(char arr[][CAP],char word[][CAP], int row, int numCol){
 	switch(arr[row][0]){
 		case 'A':
 			printf("Enter an adjective:\n");
@@ -79,6 +79,6 @@ void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][C
 
 void printArray(char word[][CAP], int row){
 	for (int i = 0; i < row; i++){
-		printf("%s\n", word[i]);
+		printf("%s", word[i]);
 	}
 }
