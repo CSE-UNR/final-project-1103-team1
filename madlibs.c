@@ -53,7 +53,7 @@ void fileIO(FILE *flptr, char arr[][CAP], int *rows) {
         	printf("Can't open file.\n");
         	return;
     	}
-    	readLine(flptr, arr, rows);
+    	readLine(flptr, arr, &rows);
     	fclose(flptr);
 }
 
