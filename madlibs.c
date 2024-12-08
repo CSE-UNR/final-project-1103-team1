@@ -28,15 +28,15 @@ void userInput(char arr[][CAP],char word[][CAP], int row, int numCol){
 	switch(arr[row][0]){
 		case 'A':
 			printf("Enter an adjective:\n");
-			scanf("%s", word[row]);
+			scanf(" %s", word[row]);
 			break;
 		case 'N':
 			printf("Enter a noun:\n");
-			scanf("%s", word[row]);
+			scanf(" %s", word[row]);
 			break;
 		case 'V':
 			printf("Enter a verb:\n");
-			scanf("%s", word[row]);
+			scanf(" %s", word[row]);
 			break;
 		default: 
 			for(int jdex = 0; jdex < numCol; jdex++){
