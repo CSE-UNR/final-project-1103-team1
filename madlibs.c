@@ -13,14 +13,13 @@ void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char w
 void printArray(char word[][CAP], int row);
 
 int main (){
-	FILE *flptr = NULL;
+	FILE *flptr;
 	char arr[CAP][CAP];
 	char word[CAP][CAP];
 	int rows=0, columns=CAP;
 	fileIO(flptr, arr, &rows);
 	switchingArrays(rows, columns, arr, word);
 	printArray(word, rows);
-	fclose(flptr);
 
 	return 0;
 }
