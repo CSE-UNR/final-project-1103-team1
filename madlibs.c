@@ -20,7 +20,6 @@ int main (){
 	fileIO(flptr, arr, &rows);
 	switchingArrays(rows, columns, arr, word);
 	printArray(word, rows);
-
 	return 0;
 }
 
@@ -41,6 +40,7 @@ void userInput(char word[][CAP],char arr[][CAP], int row, int numCol){
 			break;
 		default: 
 			for(int jdex = 0; jdex < numCol; jdex++){
+
 			word[row][jdex] = arr[row][jdex];
 		}
 	}
