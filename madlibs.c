@@ -78,6 +78,8 @@ void printArray(char word[][CAP], int row){
 	for (int i = 1; i < row; i++){
 		switch(word[i][0]){
 			case '.':
+			case ',':
+			case '!':
 				printf("%s", word[i]);
 				break;
 			default:
