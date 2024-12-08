@@ -9,25 +9,24 @@
 void fileIO(FILE *flptr, char arr[][CAP], int *rows);
 void readLine(FILE *flptr, char arr[][CAP], int *rows);
 void userInput(char word[][CAP],char arr[][CAP], int row, int numCol);
-void switchingArrays(int numRows, int numColumns, char arr[][numColumns], char word[][numColumns]);
+void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][CAP]);
 void printArray(char word[][CAP], int row);
 
 int main (){
-	FILE *flptr = NULL;
+	FILE *flptr;
 	char arr[CAP][CAP];
 	char word[CAP][CAP];
 	int rows=0, columns=CAP;
 	fileIO(flptr, arr, &rows);
 	switchingArrays(rows, columns, arr, word);
 	printArray(word, rows);
-	fclose(flptr);
 
 	return 0;
 }
 
 //Functions 
 void userInput(char word[][CAP],char arr[][CAP], int row, int numCol){
-	switch(word[row][0]){
+	switch(arr[row][0]){
 		case 'A':
 			printf("Enter an adjective:\n");
 			scanf("%s", word[row]);
@@ -42,7 +41,7 @@ void userInput(char word[][CAP],char arr[][CAP], int row, int numCol){
 			break;
 		default: 
 			for(int jdex = 0; jdex < numCol; jdex++){
-			arr[row][jdex] = word[row][jdex];
+			word[row][jdex] = arr[row][jdex];
 		}
 	}
 }
@@ -53,7 +52,7 @@ void fileIO(FILE *flptr, char arr[][CAP], int *rows) {
         	printf("Can't open file.\n");
         	return;
     	}
-    	readLine(flptr, arr, &rows);
+    	readLine(flptr, arr, rows);
     	fclose(flptr);
 }
 
@@ -74,7 +73,7 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows) {
 
 void switchingArrays(int numRows, int numColumns, char arr[][CAP], char word[][CAP]){
 	for(int index = 0; index < numRows; index++){
-		userInput(word, arr, index, numColumns);
+		userInput(arr, word, index, numColumns);
 	}
 }
 
