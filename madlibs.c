@@ -47,23 +47,27 @@ void readLine(FILE *flptr, char arr[][CAP], int *rows){
 }
 
 void userInput(char arr[][CAP],char word[][CAP], int row, int numCol){
-	switch(arr[row][0]){
-		case 'A':
-			printf("Please enter an adjective: ");
-			scanf("%s", word[row]);
-			break;
-		case 'N':
-			printf("Please enter a noun: ");
-			scanf("%s", word[row]);
-			break;
-		case 'V':
-			printf("Please enter a verb: ");
-			scanf("%s", word[row]);
-			break;
-		default: 
-			for(int jdex = 0; jdex < numCol; jdex++){
-				word[row][jdex] = arr[row][jdex];
-			}
+	if(arr[row][1]=='\0'){
+		switch(arr[row][0]){
+			case 'A':
+				printf("Please enter an adjective: ");
+				scanf("%s", word[row]);
+				break;
+			case 'N':
+				printf("Please enter a noun: ");
+				scanf("%s", word[row]);
+				break;
+			case 'V':
+				printf("Please enter a verb: ");
+				scanf("%s", word[row]);
+				break;
+			default: 
+				word[row][0] = arr[row][0];
+		}
+	} else {
+		for(int i = 0; i < numCol; i++){
+			word[row][i] = arr[row][i];
+		}
 	}
 }
 
